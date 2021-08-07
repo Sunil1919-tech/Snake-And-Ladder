@@ -18,8 +18,8 @@ public class snakeAndLadder {
 
 
         //logic to get dice number
-        double diceNo = Math.floor(((Math.random() * 10) % 6) + 1); //to get number b/w 1to6
-        System.out.println("The Dice  number is = " + diceNo);
+        double diceNum = Math.floor(((Math.random() * 10) % 6) + 1); //to get number b/w 1to6
+        System.out.println("The Dice  number is = " + diceNum);
 
         //logic to know whether it snake & ladder & no play
 
@@ -29,10 +29,10 @@ public class snakeAndLadder {
 
         //if condition for result
         if (option == LADDER) {
-            forwardStep = (diceNo + startPosition);
+            forwardStep = (diceNum + startPosition);
             System.out.println("The Player will move forward positions " + forwardStep);
         } else if (option == SNAKE) {
-            backwardStep = (diceNo - startPosition);
+            backwardStep = (diceNum - startPosition);
             System.out.println("The player will  step backword position" + backwardStep);
         } else
             System.out.println("There is No_Play and Player will Stay at the same Place" );
