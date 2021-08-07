@@ -7,38 +7,47 @@ public class snakeAndLadder {
         //constants
         int LADDER = 1;
         int SNAKE = 2;
+        int NO_PLAY = 0;
 
 
-
-        //variables
-
-        double forwardStep, backwardStep;
         int startPosition = 0;
-        System.out.println("The player postion is " + startPosition);
+        int winPosition = 100;
+        System.out.println("The player position is " + startPosition);
+
+        while (startPosition < winPosition) {
 
 
-        //logic to get dice number
-        double diceNum = Math.floor(((Math.random() * 10) % 6) + 1); //to get number b/w 1to6
-        System.out.println("The Dice  number is = " + diceNum);
+            //random function to get dice number
+            int diceNum = (int) Math.floor(((Math.random() * 10) % 6) + 1); //to get number b/w 1to6
+            System.out.println("The Dice  number is = " + diceNum);
 
-        //logic to know whether it snake & ladder & no play
+            //logic to know whether it snake & ladder & no play
 
-        double option = Math.floor(Math.random() * 10) % 3;
-        System.out.println("The option is " + option);
+            int option = (int) Math.floor(Math.random() * 10) % 3;
+            System.out.println("The option is " + option);
+
+            switch (option) {
+                case 1:
+                    option = LADDER;
+                    startPosition += diceNum;
+                    break;
+                case 2:
+                    option = SNAKE;
+                    startPosition -= diceNum;
+                    break;
+                default:
+                    option = NO_PLAY;
+                    startPosition += 0;
+
+                    if (startPosition < 0) {
+                        System.out.println("Restart the game");
+                        startPosition = 0;
+                    }
+            }
 
 
-        //if condition for result
-        if (option == LADDER) {
-            forwardStep = (diceNum + startPosition);
-            System.out.println("The Player will move forward positions " + forwardStep);
-        } else if (option == SNAKE) {
-            backwardStep = (diceNum - startPosition);
-            System.out.println("The player will  step backword position" + backwardStep);
-        } else
-            System.out.println("There is No_Play and Player will Stay at the same Place" );
+        }
+        System.out.println("The player on position: " + winPosition);
+        System.out.println("Won the Match");
     }
-
 }
-
-
-
