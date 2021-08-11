@@ -9,8 +9,9 @@ public class snakeAndLadder {
         int SNAKE = 2;
         int NO_PLAY = 0;
 
-
+//variable decleration
         int startPosition = 0;
+        int newPosition = 0;
         int winPosition = 100;
         System.out.println("The player position is " + startPosition);
 
@@ -29,25 +30,29 @@ public class snakeAndLadder {
             switch (option) {
                 case 1:
                     option = LADDER;
-                    startPosition += diceNum;
+                    newPosition += diceNum;
                     break;
                 case 2:
                     option = SNAKE;
-                    startPosition -= diceNum;
+                    newPosition -= diceNum;
                     break;
                 default:
                     option = NO_PLAY;
-                    startPosition += 0;
+                    newPosition += 0;
+            }
+            startPosition = startPosition + newPosition; //calculating the position of the dice
 
-                    if (startPosition < 0) {
-                        System.out.println("Restart the game");
-                        startPosition = 0;
-                    }
+            if (startPosition < 0) {
+                System.out.println("Restart the game");
+                startPosition = 0;
+            }
+            if (startPosition > 100) {
+                startPosition = newPosition;
             }
 
-
+            System.out.println("You are now at " + startPosition + "th" + " position");
         }
-        System.out.println("The player on position: " + winPosition);
+        //System.out.println("The player on position: " + winPosition);
         System.out.println("Won the Match");
     }
 }
