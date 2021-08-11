@@ -13,19 +13,17 @@ public class snakeAndLadder {
         int startPosition = 0;
         int newPosition = 0;
         int winPosition = 100;
-        System.out.println("The player position is " + startPosition);
+        int count=0;
 
         while (startPosition < winPosition) {
-
 
             //random function to get dice number
             int diceNum = (int) Math.floor(((Math.random() * 10) % 6) + 1); //to get number b/w 1to6
             System.out.println("The Dice  number is = " + diceNum);
-
             //logic to know whether it snake & ladder & no play
-
             int option = (int) Math.floor(Math.random() * 10) % 3;
             System.out.println("The option is " + option);
+            count++;
 
             switch (option) {
                 case 1:
@@ -52,7 +50,6 @@ public class snakeAndLadder {
 
             System.out.println("You are now at " + startPosition + "th" + " position");
         }
-        //System.out.println("The player on position: " + winPosition);
-        System.out.println("Won the Match");
+        System.out.println("\nCongratulations.. you won! the Game \t after rolling the Die " + count+"position");
     }
 }
